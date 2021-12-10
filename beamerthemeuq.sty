@@ -6,14 +6,14 @@
 %%------------------------------------------------------------%%
 
 \usetheme{metropolis}
-\usepackage{textpos}
+\RequirePackage{textpos}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Colour defines
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{xcolor}
 \definecolor{uqviolet}{RGB}{81,36,122}
-\definecolor{uqmagenta}{RGB}{150,42,139}
+\definecolor{uqmagenta}{RGB}{230,38,69}
 \definecolor{uqcyan}{RGB}{0,162,199}
 \definecolor{uqorange}{RGB}{235,96,43}
 \definecolor{uqblue}{RGB}{64,133,198}
@@ -35,8 +35,21 @@
 \setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=structure.fg!50!black}
 \setbeamercolor*{palette quaternary}{fg=white,bg=black}
 
-\colorlet{titleleft}{uqmagenta}
-\colorlet{titlemiddle}{uqmagenta!50!uqviolet}
+% Title Page Colours
+\setbeamercolor*{title}{fg=uqviolet}
+\setbeamercolor*{title separator}{fg=uqblue}
+\setbeamercolor*{author}{fg=uqviolet}
+\setbeamercolor*{date}{fg=uqviolet}
+\setbeamercolor*{institute}{fg=uqviolet}
+
+% Section Page Colours
+\setbeamercolor*{section title}{fg=uqviolet}
+\setbeamercolor*{subsection title}{fg=uqviolet}
+\setbeamercolor*{progress bar in section page}{fg=uqblue,bg=uqlightgrey}
+
+% Frame Header
+\colorlet{titleleft}{uqpurple}
+\colorlet{titlemiddle}{uqpurple!50!uqviolet}
 \colorlet{titleright}{uqviolet}
 
 \makeatletter
