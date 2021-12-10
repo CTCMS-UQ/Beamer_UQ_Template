@@ -34,12 +34,38 @@
 \subsection{Subsection 1}
 
 \begin{frame}{SLIDE 1 TITLE}
-%\footnotesize{[A footnote]}
+  \begin{block}{Block Title}
+    A block of text
+  \end{block}
+  \begin{alertblock}{Alert Block}
+    An alert block
+  \end{alertblock}
+  Some normal text
+
+  Some \alert{alerted} text
+
+  \begin{example}
+    An example block
+  \end{example}
+
+  \footnotesize{[A footnote]}
 \end{frame}
 
 \subsection{Subsection 2}
 
 \begin{frame}{SLIDE 1.1 TITLE}
+  Some items:
+  \begin{itemize}
+    \item An item
+      \begin{itemize}
+        \item A sub-item
+        \item Another sub-item
+          \begin{itemize}
+            \item A sub-sub-item
+          \end{itemize}
+      \end{itemize}
+    \item Another item
+  \end{itemize}
 \end{frame}
 
 \section{Section 2}

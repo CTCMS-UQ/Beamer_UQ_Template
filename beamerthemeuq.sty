@@ -45,9 +45,36 @@
 % Section Page Colours
 \setbeamercolor*{section title}{fg=uqviolet}
 \setbeamercolor*{section in toc}{fg=uqviolet}
+\setbeamercolor*{section in toc shaded}{fg=uqviolet}
 \setbeamercolor*{subsection title}{fg=uqviolet}
 \setbeamercolor*{subsection in toc}{fg=uqviolet}
+\setbeamercolor*{subsection in toc shaded}{fg=uqviolet}
 \setbeamercolor*{progress bar in section page}{fg=uqblue,bg=uqlightgrey}
+
+% Blocks
+\setbeamercolor*{block title}{fg=uqviolet}
+\setbeamercolor*{block body}{fg=black}
+
+\setbeamercolor*{block title alerted}{fg=uqmagenta}
+\setbeamercolor*{block body alerted}{fg=uqorange}
+
+\setbeamercolor*{block title example}{fg=uqblue}
+\setbeamercolor*{block body example}{fg=black}
+
+% Items
+\setbeamercolor*{item}{fg=black}
+\setbeamercolor*{subitem}{fg=black}
+\setbeamercolor*{subsubitem}{fg=black}
+
+% Captions
+\setbeamercolor*{caption}{fg=black}
+\setbeamercolor*{caption name}{fg=uqviolet}
+
+\setbeamercolor*{normal text}{fg=black}
+\setbeamercolor*{alerted text}{fg=uqpurple}
+
+% Less indent on first level bullet points
+\setbeamertemplate{itemize/enumerate body begin}{\setlength{\leftmargini}{1.2em}}
 
 % Frame Header
 \colorlet{titleleft}{uqpurple}
@@ -118,6 +145,3 @@
 % Fonts
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usefonttheme{professionalfonts} % using non standard fonts for beamer
-\usefonttheme{serif} % default family is serif
-\usepackage{fontspec}
-\setmainfont{Liberation Serif}
