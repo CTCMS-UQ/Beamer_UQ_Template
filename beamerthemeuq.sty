@@ -5,16 +5,29 @@
 % Created by S. Tee, adapted by S. Sanderson
 %%------------------------------------------------------------%%
 
-\usetheme[progressbar=frametitle]{metropolis}
+\usetheme{metropolis}
 \usepackage{textpos}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Colour defines
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{xcolor}
 \definecolor{uqviolet}{RGB}{81,36,122}
 \definecolor{uqmagenta}{RGB}{150,42,139}
+\definecolor{uqcyan}{RGB}{0,162,199}
 \definecolor{uqorange}{RGB}{235,96,43}
+\definecolor{uqblue}{RGB}{64,133,198}
+\definecolor{uqgreen}{RGB}{46,168,54}
 
+\definecolor{uqpurple}{RGB}{150,42,139}
+\definecolor{uqlightgrey}{RGB}{215,209,204}
+\definecolor{uqgrey}{RGB}{153,148,144}
+\definecolor{uqgold}{RGB}{200,174,115}
+\definecolor{uqyellow}{RGB}{251,184,0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Colour Theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamercolor*{structure}{bg=uqviolet!20,fg=uqviolet}
 
 \setbeamercolor*{palette primary}{use=structure,fg=white,bg=structure.fg}
@@ -36,13 +49,13 @@
   }
 \makeatother
 
-% Header
-%%custom header start
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Frame Header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \defbeamertemplate*{frametitle}{horizontal shading}
 {%
   \nointerlineskip%
-  %\vskip+3pt%
   \hbox{\leavevmode
     \advance\beamer@leftmargin by -12bp%
     \advance\beamer@rightmargin by -12bp%
@@ -71,17 +84,14 @@
         \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
         \pgfusepath{clip}
         \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
-        %\pgfputat{\pgfxy(1,1)}{\pgfbox[left,base]{\pgfuseimage{logo}}}
       \end{pgfpicture}
       \hskip-\paperwidth%
       \box\beamer@tempbox%
     }%
     \hskip-\Gm@rmargin%
   }%
-    %\vskip-2pt
 }
 \makeatother
-%%custom header end
 
 % Logo
 \addtobeamertemplate{frametitle}{}{%
@@ -89,7 +99,9 @@
 \includegraphics[height=.96cm]{UQlogo}
 \end{textblock*}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usefonttheme{professionalfonts} % using non standard fonts for beamer
 \usefonttheme{serif} % default family is serif
 \usepackage{fontspec}
