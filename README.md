@@ -1,7 +1,9 @@
 UQ template for Beamer.
 
 To use, clone this repository and just write your presentation in `main.tex`.
+
 ```git clone --depth=1 https://github.com/CTCMS-UQ/Beamer_UQ_Template.git```
+
 Running `make` should build everything (although you may need some edits to fit
 your system/preferred LaTeX compiler).
 
