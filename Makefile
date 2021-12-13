@@ -10,5 +10,12 @@ all:
 	${LATEX_CMD} --output-directory ${TEXMFOUTPUT} main.tex
 	${LATEX_CMD} --output-directory ${TEXMFOUTPUT} main.tex
 
+bib:
+	${BIB_CMD} ${TEXMFOUTPUT}/main
+	${LATEX_CMD} --output-directory ${TEXMFOUTPUT} main.tex
+
+fast:
+	${LATEX_CMD} --output-directory ${TEXMFOUTPUT} main.tex
+
 clean:
 	rm ${TEXMFOUTPUT}/*
