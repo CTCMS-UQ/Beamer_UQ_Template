@@ -1,11 +1,14 @@
-UQ template for Beamer.
+UQ template for Beamer, based on the [Metropolis](https://github.com/matze/mtheme) theme.
 
 To use, clone this repository and just write your presentation in `main.tex`.
 
 ```git clone --depth=1 https://github.com/CTCMS-UQ/Beamer_UQ_Template.git```
 
-Running `make` should build everything (although you may need some edits to fit
-your system/preferred LaTeX compiler).
+Running `make` from the project directory should build everything into `./build`
+(although you may need some edits to fit your system/preferred LaTeX compiler).
+
+For quick updates as you edit, use `make fast` to just run one pass of the
+LaTeX compiler, or `make bib` to also update the bibliography beforehand.
 
 TODO
 ----
@@ -13,4 +16,4 @@ TODO
   * Reduce indentation of subitems and subsubitems
   * Add image template for 'folded corner' outline (eg. for group photos on thank you page)
   * Add (optional?) graphic to title page
-  * Make page numbers white on `[standout]` frames.
+  * Make page numbers white on `[standout]` frames
