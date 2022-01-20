@@ -13,6 +13,9 @@ Running `make` from the project directory should build everything into `./build`
 For quick updates as you edit, use `make fast` to just run one pass of the
 LaTeX compiler, or `make bib` to also update the bibliography beforehand.
 
+For projects without a bibliograpy, use `make nobib` to avoid
+bibliography-related compile errors.
+
 TODO
 ----
   * Test colours etc. for anything not yet covered by the example in `main.tex` (eg. captions)
