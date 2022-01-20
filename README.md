@@ -4,6 +4,9 @@ To use, clone this repository and just write your presentation in `main.tex`.
 
 ```git clone --depth=1 https://github.com/CTCMS-UQ/Beamer_UQ_Template.git```
 
+Alternatively, it can be used as a [template for a new github project]
+(https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+
 Running `make` from the project directory should build everything into `./build`
 (although you may need some edits to fit your system/preferred LaTeX compiler).
 
