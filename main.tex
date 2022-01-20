@@ -10,6 +10,16 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 
+% For biber bibliography (recommended)
+% \usepackage[
+%   style=nature,
+%   backend=biber,
+%   safeinputenc
+% ]{biblatex}
+% \addbibresource{biblio.bib}
+% \AtEveryCitekey{
+%   \clearfield{title}
+% }
 
 % Title page details
 \title{TITLE}
@@ -48,7 +58,9 @@
     An example block
   \end{example}
 
-  \footnotesize{[A footnote]}
+  \footnotesize{footnote sized text}
+
+  \tiny{tiny text}
 \end{frame}
 
 \subsection{Subsection 2}
@@ -84,11 +96,15 @@ Thank you!
 
 % \appendix
 
+% For biber (recommended)
 %\begin{frame}[allowframebreaks]{References}
+%  \printbibliography
+%\end{frame}
 
+% For bibtex
+%\begin{frame}[allowframebreaks]{References}
 %  \footnotesize{\bibliography{biblio}}
 %  \bibliographystyle{unsrt}
-
 %\end{frame}
 
 \end{document}
