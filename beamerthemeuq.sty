@@ -18,6 +18,9 @@
 \usetheme{metropolis}
 \RequirePackage{textpos}
 \RequirePackage{xcolor}
+\RequirePackage{xargs}
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Colour defines
@@ -34,6 +37,29 @@
 \definecolor{uqgrey}{RGB}{153,148,144}
 \definecolor{uqgold}{RGB}{200,174,115}
 \definecolor{uqyellow}{RGB}{251,184,0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Image with rounded lower left corner
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% arg1 = corner fill colour (default white)
+% arg2 = x-y ratio (default 1.0)
+%        set < 1.0 for images that are taller than they are wide
+%        set > 1.0 for images that are wider than they are tall
+% arg3 = radius as a fraction of width (default 0.3)
+% arg3 = \includegraphics command
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommandx{\imagecorner}[4][1=white,2=1.0,3=0.3,usedefault]{%
+  \begin{tikzpicture}
+    \node [
+    above right,
+    inner sep=0] (image) at (0,0) {#4};
+    \begin{scope} [
+      x={($1.0*(image.south east)$)},
+      y={($#2*(image.north west)$)}]
+      \draw[#1,fill=#1] (0, #3) arc (180:270:#3) -- (0, 0) -- cycle;
+    \end{scope}%
+  \end{tikzpicture}%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Colour Theme

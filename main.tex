@@ -81,6 +81,14 @@
 \section{Section 2}
 
 \begin{frame}{SLIDE 2 TITLE}
+  \center Example of image with rounded corner (eg. for group photos)
+
+  % Arguments are:
+  %   - Colour (default white used here. Use uqviolet for [standout] frames)
+  %   - Ratio (> 1.0 for wide images, < 1.0 for tall ones. Default 1.0)
+  %   - Radius as a fraction of image width
+  % See beamerthemeuq.sty for details.
+  \imagecorner[][3.0][0.2]{\includegraphics[width=0.5\textwidth]{UQlogo.png}}
 \end{frame}
 
 \section{Section 3}
@@ -89,7 +97,7 @@
 \end{frame}
 
 \begin{frame}[standout]
-Thank you!
+  Thank you!
 \end{frame}
 
 % \appendix

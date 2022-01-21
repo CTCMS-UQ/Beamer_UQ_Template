@@ -20,6 +20,5 @@ TODO
 ----
   * Test colours etc. for anything not yet covered by the example in `main.tex` (eg. captions)
   * Reduce indentation of subitems and subsubitems
-  * Add image template for 'folded corner' outline (eg. for group photos on thank you page)
   * Add (optional?) graphic to title page
   * Make page numbers white on `[standout]` frames
