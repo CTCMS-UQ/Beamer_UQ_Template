@@ -16,9 +16,16 @@ LaTeX compiler, or `make bib` to also update the bibliography beforehand.
 For projects without a bibliograpy, use `make nobib` to avoid
 bibliography-related compile errors.
 
+Currently only the title page with a purple background is complete. This is the
+default. To use the light background version, include this theme with the
+`[lighttitle]` option. Note that this option currently just switches back to
+the original title page from this template without branding, but will in future
+implement the proper white-background title page.
+
 TODO
 ----
   * Test colours etc. for anything not yet covered by the example in `main.tex` (eg. captions)
   * Reduce indentation of subitems and subsubitems
-  * Add (optional?) graphic to title page
+  * Add proper light theme title with logo etc. Simple to do, but no need for it yet.
+    - Integrate title background properly into theme instead of the current hacky workaround.
   * Make page numbers white on `[standout]` frames

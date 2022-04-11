@@ -14,6 +14,11 @@
 %  - uqgreen                                                   %
 %                                                              %
 %%------------------------------------------------------------%%
+\newif\ifLightTitle
+\LightTitlefalse
+\DeclareOption{lighttitle}{\LightTitletrue}
+\ProcessOptions
+
 
 \usetheme{metropolis}
 \RequirePackage{textpos}
@@ -46,17 +51,42 @@
 %        set < 1.0 for images that are taller than they are wide
 %        set > 1.0 for images that are wider than they are tall
 % arg3 = radius as a fraction of width (default 0.3)
-% arg3 = \includegraphics command
+% arg4 = tweak factor to account for line width by offsetting in x direction
+% arg5 = section of the arc to sweep through in degrees. Must be <= 90
+% arg6 = \includegraphics command
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommandx{\imagecorner}[4][1=white,2=1.0,3=0.3,usedefault]{%
+\newcommandx{\imagecorner}[6][1=white,2=1.0,3=0.3,4=0,5=70,usedefault]{%
+  \begin{tikzpicture}
+    \node [
+    above right,
+    inner sep=0] (image) at (0,0) {#6};
+    \begin{scope} [
+      x={($1.0*(image.south east)$)},
+      y={($#2*(image.north west)$)}]
+      \fill[#1,overlay,line width=0.01pt] (#4, {#3*(sin(#5+(90-#5)/2)-sin((90-#5)/2))}) arc (190:260:#3) -- (#4, 0) -- cycle;
+      % \clip (0, 0) rectangle ({1.1*#3}, {1.1*#3}); %TODO: figure out why this offsets the whole image slightly to the right...
+    \end{scope}%
+  \end{tikzpicture}%
+}
+
+% arg1 = fill colour
+% arg2 = aspect ratio
+% arg3 = width
+% arg4 = image
+\newcommandx{\imageleaf}[4][1=white,2=1.0,3=0.18,usedefault]{%
   \begin{tikzpicture}
     \node [
     above right,
     inner sep=0] (image) at (0,0) {#4};
-    \begin{scope} [
-      x={($1.0*(image.south east)$)},
-      y={($#2*(image.north west)$)}]
-      \draw[#1,fill=#1] (0, #3) arc (180:270:#3) -- (0, 0) -- cycle;
+    \begin{scope}
+      \begin{scope} [
+        x={($1.0*(image.south east)$)},
+        y={($#2*(image.north west)$)}]
+        \fill[#1,overlay,line width=0.01pt] ({1.0-#3}, {#3/5}) sin ({1.0-#3*3.9/5}, {#3*2/5}) cos
+        ({1.0-#3*5/16}, {#3/5}) sin ({1+#3/6}, {-#3/100}) --
+        ({1+#3*1/2}, {#3*1.3/5}) sin ({1.0-#3*1.1/4}, #3) cos cycle;
+        \clip ({1.0-1.1*#3}, 0) rectangle (1.0, {1.1*#3});
+      \end{scope}%
     \end{scope}%
   \end{tikzpicture}%
 }
@@ -72,11 +102,19 @@
 \setbeamercolor*{palette quaternary}{fg=white,bg=black}
 
 % Title Page Colours
+\ifLightTitle
 \setbeamercolor*{title}{fg=uqviolet}
 \setbeamercolor*{title separator}{fg=uqblue}
 \setbeamercolor*{author}{fg=uqviolet}
 \setbeamercolor*{date}{fg=uqviolet}
 \setbeamercolor*{institute}{fg=uqviolet}
+\else
+\setbeamercolor*{title}{fg=white}
+\setbeamercolor*{title separator}{fg=white}
+\setbeamercolor*{author}{fg=white}
+\setbeamercolor*{date}{fg=white}
+\setbeamercolor*{institute}{fg=white}
+\fi
 
 % Section Page Colours
 \setbeamercolor*{section title}{fg=uqviolet}
@@ -176,6 +214,40 @@
 \begin{textblock*}{100mm}(.78\textwidth,-.97cm)
 \includegraphics[height=.96cm]{UQlogo}
 \end{textblock*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\pgfdeclarehorizontalshading[titleleft,titlemiddle,titleright]
+      {beamer@titlepageshade}{\paperheight}{
+    color(0pt)=(titleright);
+    color(0.65\paperwidth)=(titleright);
+    color(0.85\paperwidth)=(titlemiddle);
+    color(\paperwidth)=(titleleft)
+  }
+\makeatother
+
+% TODO: This is a hacky way to set up the title background template.
+% There is certainly a better way that integrates it into the theme properly so
+% that \maketitle can be used as normal
+\ifLightTitle%
+\newcommand{\titletemplate}{}%
+\else%
+\newcommand{\titletemplate}{%
+  \usebackgroundtemplate{%
+    \imageleaf[][1.05]{\imagecorner[][1.5][0.35][0.001][65]{%
+      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\paperheight}
+        \usebeamercolor{titleright}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\paperheight}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@titlepageshade}}
+        \pgftext[left,top,x=1cm,y=\paperheight-.4cm]{\includegraphics[height=.7cm]{UQ_assets/logo_create_change.png}}
+      \end{pgfpicture}%
+    }}%
+  }%
+}%
+\fi%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Fonts

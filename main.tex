@@ -1,5 +1,8 @@
 \documentclass[10pt,xcolor={dvipsnames},aspectratio=169]{beamer}
+
+% Add the [lighttitle] option to use the light-theme title (WIP)
 \usetheme{uq}
+% \usetheme[lighttitle]{uq}
 
 %% Fix slide numbers when using appendix
 % \usepackage{appendixnumberbeamer}
@@ -30,7 +33,10 @@
 
 \begin{document}
 
-\maketitle
+{
+  \titletemplate
+  \maketitle
+}
 
 \begin{frame}{Table of contents}
   \setbeamertemplate{section in toc}[sections numbered]
@@ -87,6 +93,8 @@
   %   - Colour (default white used here. Use uqviolet for [standout] frames)
   %   - Ratio (> 1.0 for wide images, < 1.0 for tall ones. Default 1.0)
   %   - Radius as a fraction of image width
+  %   - degrees to sweep through (default 70)
+  %   - x shift factor (default 0, use this to account for line width if necessary)
   % See beamerthemeuq.sty for details.
   \imagecorner[][3.0][0.2]{\includegraphics[width=0.5\textwidth]{UQlogo.png}}
 \end{frame}
