@@ -21,7 +21,6 @@
 
 
 \usetheme{metropolis}
-\RequirePackage{textpos}
 \RequirePackage{xcolor}
 \RequirePackage{xargs}
 \RequirePackage{tikz}
@@ -214,9 +213,9 @@
 
 % Logo
 \addtobeamertemplate{frametitle}{}{%
-\begin{textblock*}{100mm}(.78\textwidth,-.97cm)
-\includegraphics[height=.96cm]{UQ_assets/UQlogo.png}
-\end{textblock*}}
+\begin{pgfpicture}{0}{0}{0cm}{0cm}
+\pgftext[right,x=.877\paperwidth,y=.97cm]{\includegraphics[height=.575cm]{UQ_assets/logo.png}}
+\end{pgfpicture}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title
