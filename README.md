@@ -29,7 +29,8 @@ TODO
   * Reduce indentation of subitems and subsubitems
   * Add proper light theme title with logo etc. Simple to do, but no need for it yet.
     - Integrate title background properly into theme instead of the current hacky workaround.
-  * Make page numbers white on `[standout]` frames
+  * Make page numbers white on `[standout]` frames (until then, they can be
+    hidden by adding the `plain` and `noframenumbering` options).
 
 DISCLAIMER
 ----------
