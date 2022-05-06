@@ -14,7 +14,8 @@ For quick updates as you edit, use `make fast` to just run one pass of the
 LaTeX compiler, or `make bib` to also update the bibliography beforehand.
 
 For projects without a bibliograpy, use `make nobib` to avoid
-bibliography-related compile errors.
+bibliography-related compile errors. If you use the biber backend, make sure to
+change the BIB_CMD in the makefile to biber.
 
 Currently only the title page with a purple background is complete. This is the
 default. To use the light background version, include this theme with the
@@ -29,3 +30,8 @@ TODO
   * Add proper light theme title with logo etc. Simple to do, but no need for it yet.
     - Integrate title background properly into theme instead of the current hacky workaround.
   * Make page numbers white on `[standout]` frames
+
+DISCLAIMER
+----------
+This template should be used only in accordance with the relevant University of
+Queensland policies and procedures.
